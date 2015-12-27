@@ -8,17 +8,17 @@ import stampit from 'stampit'
 export default function resourceAdapterFactory(opts = {}) {
 
 let {fetch} = opts
-const resourceAdapter = stampit()
+return stampit()
 .static({
     createResource({self,body}) {
-        return resourceAdapter({
+        return this({
             self
             ,body
             , fetch
         })
     }
 })
-.init(function(){
+.init(function({instance,stamp}){
     //accepts a resource instance to wrap
     //or creates a new one
     let resource = this.resource || haleoas({
@@ -37,7 +37,7 @@ const resourceAdapter = stampit()
     }
     this.follow = function(rel) {
         return Promise.all(resource.follow(rel))
-        .map(resource => resourceAdapter({ resource}))
+        .map(resource => stamp({ resource}))
     }
     this.get = function(args) {
         return resource.get((args && args.params) || {})
