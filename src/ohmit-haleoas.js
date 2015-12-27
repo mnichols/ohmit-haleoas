@@ -7,24 +7,23 @@ import stampit from 'stampit'
 
 export default function resourceAdapterFactory(opts = {}) {
 
-let {fetch} = opts
+let hal = haleoas(opts)
+
 return stampit()
 .static({
     createResource({self,body}) {
         return this({
             self
             ,body
-            , fetch
         })
     }
 })
 .init(function({instance,stamp}){
     //accepts a resource instance to wrap
     //or creates a new one
-    let resource = this.resource || haleoas({
+    let resource = this.resource || hal({
         self: this.self
         , body: this.body
-        , fetch: this.fetch
     })
     this.hasRelation = function(rel) {
         return (resource.links(rel).length > 0)
