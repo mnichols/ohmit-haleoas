@@ -12,7 +12,7 @@ import ohmitHaleoas from ‘ohmit-haleoas’
 let resourceFactory = ohmitHaleoas({ fetch: myFetchImplementation })
 let ohm = ohmit({ resourceFactory })
 let q = {
-    _root: ‘http://my.api.com
+    _root: ‘http://my.api.com’
     , about: ‘/about’
 }
 ohm.execute(q).then({ results} => {
