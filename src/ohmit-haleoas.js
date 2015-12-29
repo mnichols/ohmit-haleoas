@@ -5,14 +5,13 @@ import Promise from 'bluebird'
 import stampit from 'stampit'
 
 
-export default function resourceAdapterFactory(opts = {}) {
+export default function resourceAdapterFactoryFactory(opts = {}) {
 
-let hal = haleoas(opts)
-
-return stampit()
+const hal = haleoas(opts)
+const resourceAdapter = stampit()
 .static({
     createResource({self,body}) {
-        return this({
+        return resourceAdapter({
             self
             ,body
         })
@@ -49,7 +48,6 @@ return stampit()
     ;(delete this.body)
 
 })
-
 return resourceAdapter
 
 }
