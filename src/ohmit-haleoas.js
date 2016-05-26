@@ -16,6 +16,7 @@ const resourceAdapter = stampit()
             ,body
         })
     }
+    , hal
 })
 .init(function({instance,stamp}){
     //accepts a resource instance to wrap
