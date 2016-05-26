@@ -1,6 +1,6 @@
 {
   "name": "ohmit-haleoas",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Connect via haleoas in ohmit",
   "main": "dist/ohmit-haleoas.js",
   "babel": {
