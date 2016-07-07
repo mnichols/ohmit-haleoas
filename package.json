@@ -1,6 +1,6 @@
 {
   "name": "ohmit-haleoas",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Connect via haleoas in ohmit",
   "main": "dist/ohmit-haleoas.js",
   "babel": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/mnichols/ohmit-haleoas#readme",
   "dependencies": {
     "bluebird": "^3.1.1",
-    "haleoas": "^0.2.5",
+    "haleoas": "^0.2.7",
     "stampit": "^2.1.1"
   },
   "devDependencies": {
