@@ -38,8 +38,8 @@ const resourceAdapter = stampit()
         return Promise.all(resource.follow(rel))
         .map(resource => stamp({ resource}))
     }
-    this.get = function(args) {
-        return resource.get((args && args.params) || {})
+    this.get = function(args = {}) {
+        return resource.get(args)
         .then(result=>{
             ({resource} = result)
             return this
