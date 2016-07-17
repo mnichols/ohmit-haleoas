@@ -22,7 +22,7 @@ test('creating a resource works',(assert) => {
 test('GETting a resource works with params',(assert) => {
     let body = {
         _links: {
-            self: { href: origin}
+            self: { href: origin, templated: false }
             , about: { href: `${origin}/about` }
         }
         , foo: 'bar'
@@ -35,7 +35,7 @@ test('GETting a resource works with params',(assert) => {
         }
         , statusCode: 200
     })
-    let adapter= factory({ fetch}).createResource({ self: `${origin}{?foo}`})
+    let adapter= factory({ fetch}).createResource({ self: { href: `${origin}{?foo}`, templated: true }})
     return adapter.get({ params: { foo: 'bar'}})
     .then(adapter=>{
         assert.equal(adapter.self(),origin)
