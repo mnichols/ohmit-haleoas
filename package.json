@@ -30,7 +30,7 @@
   "homepage": "https://github.com/mnichols/ohmit-haleoas#readme",
   "dependencies": {
     "bluebird": "^3.1.1",
-    "haleoas": "^0.3.3",
+    "haleoas": "^0.3.4",
     "stampit": "^2.1.1"
   },
   "devDependencies": {
